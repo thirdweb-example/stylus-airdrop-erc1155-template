@@ -133,7 +133,7 @@ impl StylusAirdropERC1155 {
         if self.claimed.get(key) {
             return Err(AirdropErrors::AirdropError(AirdropError { code: ERROR_ALREADY_CLAIMED }));
         }
-        self.claimed.insert(root, true);
+        self.claimed.insert(key, true);
 
         // 4. transfer
         let erc1155 = IERC1155::from(token);
